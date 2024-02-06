@@ -1,74 +1,31 @@
-// Метод OPTIONS используется для описания параметров соединения с целевым ресурсом.
-// Не имеет тела.
-// OPTIONS возвращает параметры в заголовке. Список параметров зависит от ресурса и/или сервера. Обычно это заголовок Allow, который описывает какие методы доступны для ресурса.
-// Метод только для получения данных с сервера, без внесений изменений, поэтому он считается также безопасным.
+// let counter = {};
+// let counter = new Counter()
+// let counter = new Object();
+// let counter = Object.assign({}, counter);
+// let counter = Object.create({});
 
-// "HTTP" Версия 3.0 - готовящаяся к стандартизации версия протокола HTTP. 
-//  Её особенности: использует новый транспортный протокол QUIC, благодаря быстрее устанавливается соединение, быстрее передаются пакеты, лучше работает мультиплексирование.
-//  QUIC — транспортный протокол, работающий поверх UDP. Передаёт данные быстрее TCP, тратит меньше времени на установку соединения, но при этом такой же надёжный.
+// let counterCopy = {}
+// let counterCopy = Object.assign({}, counter)
+// for (let key in counter) {
+// 	if (counter.hasOwnProperty(key)) {
+// 		counterCopy[key] = counter[key]
+// 	}
+// }
+// let counterCopy = JSON.parse(JSON.stringify(counter))
+// let counterCopy = { ...counter }
 
-// String:
-// 1. Использование двойных кавычек:
-// let str1 = "Hello, world!";
-// 2. Использование одинарных кавычек:
-// let str2 = 'JavaScript is awesome!';
-// 3. Испольвание косых кавычек:
-// let str3 = `${name}`
-// 4. Испольвание функции newString:
-// let str4 = new String('HelloWorld');
-// 5. Испольвание Object.toString();
-// let count = 15;
-// console.log(count.toString())
+// function makeCounter() {
+// 	return ()
+// }
+// const makeCounter = function() {
+// 	return ()
+// }
+// const makeCounter = () => {
+// 	return ()
+// }
 
-// Number:
-// 1. Просто значение:
-// let num1 = 42;
-// 2. Функция Number();
-// let str = "123";
-// let num = Number(str);  становится числом 123
-// 3. С помощью унарного оператора "+"
-// const number = +'23';
-// 4. Испольвание функции parseInt();
-// const number2 = parseInt('123');
+// structuredClone() существует для легкого создания глубоких копий значений в JavaScript.
 
-// Boolean:
-// 1. Значение true:
-// let bool1 = true;
-// 2. Через функцию new Boolean()
-// let x = new Boolean(false);
-
-// Null:
-// 1. Присваивание значения null:
-// let nullVar = null;
-// 2. Такой же способ, как ещё не знаю:
-// let nullVar2 = null;
-
-// Undefined:
-// 1. Объявление переменной без присваивания значения:
-// let something;
-// 2. Присваивание значения undefined:
-// let something2 = undefined;
-
-// Symbol:
-// 1. Использование глобального символа:
-// let sym1 = Symbol('symbol1');
-// 2. Использование символа без описания:
-// let sym2 = Symbol();
-
-// BigInt:
-// 1. Использование литерала BigInt:
-// let bigInt1 = 123456789012345678901234567890n;
-// 2. Использование функции BigInt():
-// let bigInt2 = BigInt(9876543210);
-
-// Появится ошибка из-за того, что переменные, созданные через const/let ограничены областью видимости блока, то есть они находятся в Temporal Dead Zone.
-
-const res = 'B' + 'a' + (1 - 'hello')
-console.log(res) 
-// "BaNaN" - B И a - это строковые значения, а в скобках будет NaN из-за того, что мы вычитаем из числа строку. 
-
-const res2 = (true && 3) + "d"
-console.log(res2) // "3d" - оператор && ищет последнее истинное значение, а 3 это true, поэтому получаем 3, при сложении со строкой получаем 3d
-
-const res3 = Boolean(true && 3) + "d"
-console.log(res3) // "trued" - оператор && ищет последнее истинное значение, а 3 это true, потом Boolean(3) преобразуется в true и получаем true+d = trued
+// function reverseStr(str) {
+// 	return str.split('').reverse().join('');
+// }
