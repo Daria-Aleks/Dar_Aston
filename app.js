@@ -1,44 +1,38 @@
-// Почему массив является "неправильным"?
-// Массив - это объект. Значит, что он может содержать в себе элементы любого типа, а также их размер может изменяться. Это ведет к непредсказуемому поведению. 
+// Существуют десятки алгоритмов сортировки, но есть три самых популярных алгоритма сортировки:
+// - Пузырьковая сортировка
+// - Сортировка выбором
+// - Быстрая сортировка
 
-function logger() {
-    console.log(`I output only external context: ${this.item}`);
-  }
-const obj = { item: "some value" };
-const bindLogger = logger.bind(obj);
-bindLogger();
-logger.call(obj);
-logger.apply(obj);
-
-const Arr = [1, 2, 3, 4, 5];
-console.log(Arr.reduce((that, next) => that + next));
-
-const stringArr = ["Hello", "world", "again", "..."];
-console.log(stringArr.join(" "));
-
-const numberArr = [5, 3, 6, 8, 7, 2, 22];
-console.log(Math.max(...numberArr)); 
-console.log(Math.min(...numberArr)); 
-
-const stack = [];
-const stackIn = (i) => {
-  stack.push(i);
-  return stack;
+const Person1 = {
+    name: "Somebody",
+    weight: 55,
 };
-const stackOut = () => stack.pop();
-console.log(stackIn(2));
-console.log(stackIn(4));
-console.log(stackIn(9));
-console.log(stackIn(1));
-console.log(stackOut());
+const Person2 = new Object(
+    {
+    name: "Somebody",
+    weight: 55,
+    }
+);
+const Person02 = {};
+Person02.__proto__ = Person1;
+console.log(Person02.name);
+Object.prototype.logInfo = "logInfo";
+console.log(Person02.logInfo);
 
-const queue = [];
-const queueIn = (i) => {
-  queue.unshift(i);
-  return queue;
+class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
 };
-const queueOut = () => queue.pop();
-console.log(queueIn(5));
-console.log(queueIn(9));
-console.log(queueIn(2));
-console.log(queueOut());
+class PersonThree extends Person {
+   constructor(name, age) {
+     super(name, age);
+    };
+    get name() {
+   return this.name;
+    };
+  set name(newName) {
+   this.name = newName;
+    }
+ }
